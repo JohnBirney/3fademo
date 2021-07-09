@@ -10,7 +10,7 @@ const actions = require('./lib/actions')
 const utils = require('./lib/utils')
 //const disallowedPasswords = require('./lib/middleware/disallowedPasswordList')
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8888
 const app = express()
 
 app.engine('handlebars', exphbs({
