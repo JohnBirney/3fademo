@@ -1,0 +1,43 @@
+{{#section 'head'}}
+  <title>Result</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="public/css/authresult.css">  
+{{/section}}
+<h2>Step 4: Result</h2>
+<form method="POST" action="/authresult">
+
+    <section id="authunamepwdSection">
+      <h3>Something that you know</h3>  
+      <div>
+        <section id="authnamePwdLabels">
+            <label>Username:</label>
+            <label>Password:</label>
+        </section>
+        <section id="authnamePwdControls">
+            <input type="text" id="username" name="username" readonly />
+            <div><input type="password" id="password" name="password" readonly/><i class="bi bi-eye-slash togglePassword"></i></div>
+        </section>      
+      </div>
+    </section>
+    <section id="authgaSection">
+      <h3>Something that you have</h3>
+      <div>
+        <section id="authgaLabel">
+          <label>Google Authenticator Code:</label>        
+        </section>
+        <section id="authgaControl">
+          <input type="text" id="gaCode" name="gaCode" readonly>
+        </section>
+      </div>
+    </section>
+    <section id="authfaceSection">
+      <h3>Something that you are</h3>
+      <img id="image" class="image"/>      
+    </section>
+</form>
+<footer>
+    <span class="navNext">Return to main menu...</span>
+</footer>
+{{#section 'scripts'}}
+<script src="public/js/authresult.js"></script>
+{{/section}}

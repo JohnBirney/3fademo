@@ -1,0 +1,29 @@
+{{#section 'head'}}
+  <title>Face image</title>
+  <link rel="stylesheet" href="public/css/authfaceimage.css">
+  <link rel="stylesheet" href="public/css/imgSlider.css">
+{{/section}}
+<h2>Step 3: Verify face image</h2>
+<form method="POST" action="/authfaceimage">
+    <video id="video" width="320" height="240" autoplay muted></video>
+    <div id="waitingMessage"><p>Initialising, please wait ...</p></div>
+    <input type="hidden" id="matched">
+    <input type="hidden" id="base64Str" name="base64Str">
+    <div id="messageBar">
+        <div><span></span></div>
+        <div><span>Looking for a match, please wait ...</span>&nbsp;<a href=""></a></div>
+        <div></div>
+    </div>
+</form>
+<div id="viewer">
+    <div id="container"></div>
+</div>
+<footer>
+    <span class="navNext">Step 4: Final result ...</span>
+</footer>
+{{#section 'scripts'}}
+<script src="public/js/face-api.min.js"></script>
+<script src="public/js/utils.js"></script>
+<script src="public/js/authfaceimage.js"></script>
+<script src="public/js/imgSlider.js"></script>
+{{/section}}

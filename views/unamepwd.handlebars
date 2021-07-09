@@ -1,0 +1,24 @@
+{{#section 'head'}}
+    <title>Username and password</title>
+    <link rel="stylesheet" href="public/css/unamepwd.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+{{/section}}
+<h2>Step 1: Enter username and password</h2>
+<form method="POST" action="/unamepwd">
+    <section id="namePwdLabels">
+        <label>Username:</label>
+        <label>Password:</label>
+        <label>Retype password:</label>    
+    </section>
+    <section id="namePwdControls">
+        <input type="text" id="username" name="username" autocomplete="off">
+        <div><input type="password" id="password" name="password" autocomplete="off"><i class="bi bi-eye-slash togglePassword"></i></div>
+        <div><input type="password" id="repassword" name="repassword" autocomplete="off"><i class="bi bi-eye-slash togglePassword"></i></div>
+    </section>
+</form>
+<footer>
+    <span class="navNext">Step 2: Set up Google Authenticator...</span>
+</footer>
+{{#section 'scripts'}}
+<script src="public/js/unamepwd.js"></script>
+{{/section}}

@@ -1,0 +1,11 @@
+<h1>404 - Not Found</h1>
+<p>The web page currently entered in the address bar:</p>
+<p id='url'></p>
+<p>... is not known on this web server.</p>
+{{#section 'scripts'}}
+<script>
+    $(document).ready(() => {
+        $('#url').text(window.location.href)
+    })
+</script> 
+{{/section}}

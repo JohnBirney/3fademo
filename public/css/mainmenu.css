@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+  }
+  h1 {
+    color: white;
+    padding: 2em 0;
+    font-size: 3vw;
+  }
+  ul {
+    padding: 7em 0;
+    list-style-type: none;
+  }
+  a {
+    color: white;
+    font-size: 2.4vw;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  /* If the screen size is 700px wide or less, scale font-size to screen */
+  @media screen and (max-width: 700px) {
+    h1 {
+      font-size: 4vw;
+    }
+    a {
+      font-size: 3vw;
+    }
+  }

@@ -1,0 +1,15 @@
+{{#section 'head'}}
+  <title>Google Authenticator</title>
+  <link rel="stylesheet" href="public/css/authga.css">
+{{/section}}
+<h2>Step 2: Verify Google Authenticator</h2>
+<form method="POST" action="/authga">
+    <label>Google Authenticator 6-digit code</label>
+    <input type="text" id="gaCode" name="gaCode" autocomplete="off">
+</form>
+<footer>
+    <span class="navNext">Step 3: Verify face image...</span>
+</footer>
+{{#section 'scripts'}}
+<script src="public/js/authga.js"></script>
+{{/section}}

@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #333;
+    font-size: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.alert {
+    height: 10vh;
+}
+header {
+    margin: 1vh 1vw;    
+    padding: 0;
+    width: 98vw;
+    flex-basis: auto;
+}
+/*start chevronContainer*/
+.chevronContainer {    
+    --custWidth: 80vw;
+    width: var(--custWidth);
+}
+.chevron {
+    position: relative;
+    background-color: #555;  
+    border-left-color: #555; 
+}
+#chevron2 {
+    left: calc((var(--custWidth)/4) + 0.25vw);    
+}
+#chevron3 {
+    left: calc((var(--custWidth)/4*2) + 0.5vw);
+}
+#chevron4 {
+    left: calc((var(--custWidth)/4*3) + 0.75vw);    
+}
+.rect {
+    position: absolute;
+    width: calc(var(--custWidth)/4);
+    height: 8vh;
+    flex-basis: auto;
+    text-align: center;
+    background-color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rect a, .rect span {
+    margin-left: 1vw;
+    font-size: 1.5vw;
+}
+.right-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 4vh solid transparent;
+    border-bottom: 4vh solid transparent;
+    border-left-width: 2vw;
+    border-left-style: solid;
+}
+.first {
+    border-left-color: #333;  
+}
+.start {
+    border-left-color: inherit;  
+}
+.last {
+    border-left-color: inherit; 
+    left: calc(var(--custWidth)/4);
+}
+.passed .rect {
+    background: #C7CEEA;
+}
+.passed .right-arrow {
+    border-left-color: #C7CEEA;
+}
+.passed .first {
+    border-left-color: #333;
+}
+.chevron:not(.passed) a {
+/*    color: #999;
+    text-decoration: none;
+    cursor: default;*/
+    display: none;
+}
+.chevron.passed span {
+    display: none;
+}
+.chevron:not(.passed) span {
+    display: inline;
+    cursor: pointer;
+}
+/*end chevronContainer*/
+/*#main {
+    margin: 1vh 1vw;
+    margin-top: 9vh;
+    padding: 0;
+    width: 98vw;
+}*/
+label, p {
+    color: white;
+    text-align: right;
+}
+label, input[type=text], input[type=password] {
+    /*margin: 0.75vh 0.75vh;*/
+    margin: 1vh 1vh;
+    font-size: 1.5vw;
+}
+footer {
+    margin: 2.5vh 2.5vw;
+    padding-right: 2vw;
+    width: 98vw;
+    flex-basis: 8vh;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+footer .navNext {
+    font-size: 1.5vw;
+    color: white;
+    cursor: pointer;
+}
+h2 {
+    margin-left: 3vw;
+    margin-top: 9vh;
+    font-size: 2vw;
+    color: white;
+}
+.rec a:link, .rect a:visited {
+    color:#7092be;
+}

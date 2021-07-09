@@ -1,0 +1,52 @@
+{{#section 'head'}}
+  <title>Create user</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="public/css/createuser.css">  
+{{/section}}
+<form method="POST" action="/createuser">
+    <section id="unamepwdSection">
+      <h3>Something that you know</h3>  
+      <div>
+        <section id="namePwdLabels">
+            <label>Username:</label>
+            <label>Password:</label>
+        </section>
+        <section id="namePwdControls">
+            <input type="text" id="username" name="username" autocomplete="off" readonly />
+            <div><input type="password" id="password" name="password" autocomplete="off" readonly/><i class="bi bi-eye-slash togglePassword"></i></div>
+        </section>      
+        <section id="namePwdEdit">
+          <a href="/unamepwd">Edit username and password</a>        
+        </section>
+      </div>
+    </section>
+    <section id="gaSection">
+      <h3>Something that you have</h3>
+      <a href="/ga">Edit Google Authenticator settings</a>      
+    </section>
+    <section id="faceSection">
+      <h3>Something that you are</h3>
+      <div>
+        <div>
+          <img id="image1" class="image"/>      
+          <img id="image2" class="image"/>
+          <img id="image3" class="image"/>
+          <a href="/faceimage">Edit face images</a>
+        </div>
+        <div>
+          <input type="submit" id="createUserBtn" value="Create user">
+        </div>
+      </div>
+    </section>
+    <input type="hidden" id="privateKey" name="privateKey">    
+    <input type="hidden" id="filename1" name="filename1">
+    <input type="hidden" id="filename2" name="filename2">
+    <input type="hidden" id="filename3" name="filename3">
+</form>
+<footer>
+    <span class="navNext">Return to main menu...</span>
+</footer>
+{{#section 'scripts'}}
+<script src="public/js/createuser.js"></script>
+{{/section}}
+

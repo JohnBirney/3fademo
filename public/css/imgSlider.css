@@ -1,0 +1,32 @@
+#container {
+    position: relative;
+    white-space: nowrap;
+    visibility: hidden;
+}
+#viewer {
+    padding: 1vh 0;
+    display: inline-block;
+    width: 100vw;
+    overflow: hidden;
+}
+#container img {
+    margin: 1vh 1.5vw;
+    position: relative;
+    display: inline-block;
+    width: 7vw;
+    z-index: 1;
+    filter: brightness(40%);
+    transform: scale(1);
+    transition: filter .75s, transform .75s;
+}
+#container img.selected {
+    z-index: 2;
+    filter: brightness(100%);
+    transform: scale(1.4);
+}
+/*#imgSlider span {
+    display: none;
+    margin: 0 1.5vw;
+    font-size: 1vw;
+    color: white;
+}*/

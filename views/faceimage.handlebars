@@ -1,0 +1,27 @@
+{{#section 'head'}}
+  <title>Face image</title>
+  <link rel="stylesheet" href="public/css/faceimage.css">  
+{{/section}}
+<h2>Step 3: Record face image</h2>
+<form method="POST" action="/faceimage">
+    <video id="video" autoplay muted></video>
+    <section id="snapshotSection">
+        <p>This step requires three photographs to be taken. When you're ready click the button below.</p>
+        <button type="button" id="take3Photos">Ready</button>
+        <button type="button" id="takePhoto">Take photo</button>
+        <audio src="http://www.soundjay.com/mechanical/camera-shutter-click-08.mp3" preload="auto"></audio>
+        <section id="snapshots">
+            <div class="snapshot"><img class="image" id="image1"><span></span><input type="hidden" id="filename1" class="filename" name="filename1"><input type="hidden" class="base64Str" id="base64Str1" name="base64Str1"></div>
+            <div class="snapshot"><img class="image" id="image2"><span></span><input type="hidden" id="filename2" class="filename" name="filename2"><input type="hidden" class="base64Str" id="base64Str2" name="base64Str2"></div>
+            <div class="snapshot"><img class="image" id="image3"><span></span><input type="hidden" id="filename3" class="filename" name="filename3"><input type="hidden" class="base64Str" id="base64Str3" name="base64Str3"></div>
+        </section>
+    </section>
+    <img id="focusedSnapshot">
+</form>
+<footer>
+    <span class="navNext">Step 4: Create user...</span>
+</footer>
+{{#section 'scripts'}}
+<script src="public/js/utils.js"></script>
+<script src="public/js/faceimage.js"></script>
+{{/section}}

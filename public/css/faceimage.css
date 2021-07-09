@@ -1,0 +1,72 @@
+form {
+    margin: 1vh 1vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    padding: 0;
+    width: 98vw;
+    height: 68vh;
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+video {
+    height: 68vh;
+}
+#snapshotSection {
+    margin: 0.5vh 0.5vw;
+    width: 16vw;
+    /*height: 72vh;*/
+    height: 68vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+#snapshots {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.snapshot {
+    margin: 0.5vh 0.5vw;
+/*    border: 1px dashed white;*/
+    width: 14vw;
+    height: 18vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+    font-weight: bold;
+    color: grey;
+}
+#focusedSnapshot {
+    margin: 0.5vh 0.5vw;
+    width: 32vw;
+}
+.image {
+    display: none;
+    width: 8vw;
+    height: auto;
+    cursor: pointer;
+}
+.image.selected {
+    border: 2px solid white;
+}
+#take3Photos {
+    display: inline-block;
+}
+#takePhoto {
+    display: none;
+}
+button {
+    font-size: 1.5vw;
+}
+p {
+    font-size: 1vw;
+    text-align: center;
+}

@@ -1,0 +1,18 @@
+{{#section 'head'}}
+  <title>Google Authenticator</title>
+  <link rel="stylesheet" href="public/css/ga.css">
+{{/section}}
+<h2>Step 2: Set up Google Authenticator</h2>
+<form method="POST" action="/ga">
+    <img name="qrcode" id="qrcode"/>
+    <input type="hidden" id="qrcodeData" name="qrcodeData">
+    <input type="hidden" id="privateKey" name="privateKey">
+    <p>Scan the QRcode using the Google Authenticator app.</p>
+</form>
+<footer>
+    <span class="navNext">Step 3: Record face image...</span>
+</footer>
+{{#section 'scripts'}}
+<script src="public/js/qrcode.js"></script>
+<script src="public/js/ga.js"></script>
+{{/section}}

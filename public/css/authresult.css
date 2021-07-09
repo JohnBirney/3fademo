@@ -1,0 +1,82 @@
+form {
+    margin: 1vh 1vw;
+    padding: 0;
+    width: 98vw;
+    height: 78vh;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+section {
+    width: 90vw;
+    margin-top: 2vh;
+}
+h3, p, label, span {
+    color: white;
+}
+a {
+    margin: 1vh 1vw;
+    font-size: 1.5vw;
+}
+h3 {
+    display: block;
+    font-size: 2vw;
+}
+#authunamepwdSection {
+/*    height: 25vh;*/
+    display: flex;
+    flex-direction: column;
+}
+#authunamepwdSection div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#authnamePwdLabels {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+#authnamePwdControls {
+    width: 25vw;
+}
+input[type="text"], input[type="password"] {
+    width: 20vw;
+}
+i {
+    display: inline;
+    font-size: 1.7vw;
+    margin: 0 0 0 -2.7vw;
+    cursor: pointer;
+}
+#authgaSection {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+}
+#authgaSection div {
+    display: flex;
+    flex-direction: row;
+}
+#authgaLabel {
+    width: 20vw;
+    display: flex;
+    justify-content: right;
+} 
+#authgaControl {
+    width: 25vw;
+    display: flex;
+    justify-content: left;
+}
+#authfaceSection {
+    display: flex;
+    flex-direction: column;
+}
+.image {
+    margin: 1vh 1vw;
+    margin-left: 20vw;
+    width: 8vw;
+}
