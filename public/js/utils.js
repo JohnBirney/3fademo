@@ -1,3 +1,5 @@
+const TempFileChar = '$'
+
 /* Extracts a base64 string from an img element. It does so by creating a temporary canvas element, copying over the image of the img
 element. The toDataURL() method of the canvas gives the base64 string which is returned. */
 function imgToBase64 (img) {

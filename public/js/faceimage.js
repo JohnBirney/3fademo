@@ -98,7 +98,7 @@ $(document).ready(() => {
                         $('audio').get(0).play()
                         let dataURL = getSnapshot()
                         $($img).attr('src', dataURL)
-                        $(filename).val(`~${username}${index.toString()}.png`)
+                        $(filename).val(`${TempFileChar}${username}${index.toString()}.png`)
                         //$(filename).val('~' + username + index.toString() + '.png')
                         $(base64Str).val(dataURL)
                         copyToFocusedSnapshot($img.get(0))                  
