@@ -18,9 +18,12 @@ function imgToBase64 (img) {
 function getImagePath(filename) {
 
     const protocol = window.location.protocol
-    const hostname = window.location.hostname.replace(':','')
+    const hostname = window.location.hostname
     const port = window.location.port
-
-    return `${protocol}//${hostname}:${port}/uploads/${filename}`
+    if ((port == undefined) || (port == '')) {
+        return `${protocol}//${hostname}/uploads/${filename}`
+    } else {
+        return `${protocol}//${hostname}:${port}/uploads/${filename}`
+    }
 
 }
