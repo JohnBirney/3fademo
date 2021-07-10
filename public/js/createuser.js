@@ -15,6 +15,7 @@ $(document).ready(() => {
         /*$('#image1').attr('src', getImagePath(`~${data.filename1}`))
         $('#image2').attr('src', getImagePath(`~${data.filename2}`))
         $('#image3').attr('src', getImagePath(`~${data.filename3}`))*/
+        alert(getImagePath(data.filename1))
         $('#image1').attr('src', getImagePath(`${data.filename1}`))
         $('#image2').attr('src', getImagePath(`${data.filename2}`))
         $('#image3').attr('src', getImagePath(`${data.filename3}`))
