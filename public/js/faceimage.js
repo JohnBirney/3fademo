@@ -137,11 +137,13 @@ $(document).ready(() => {
     })
 
     $('.navNext').click(() => {
-        postData()
+        $('form').submit()
     })
 
-    const postData = () => {
-        $('form').submit()
-    }
+    $('form').submit(() => {
+        $('.base64Str').val('')
+        return true
+    })
+
 
 })
