@@ -18,7 +18,7 @@ function imgToBase64 (img) {
 function getImagePath(filename) {
 
     const protocol = window.location.protocol
-    const hostname = window.location.hostname
+    const hostname = window.location.hostname.replace(':','')
     const port = window.location.port
 
     return `${protocol}//${hostname}:${port}/uploads/${filename}`
