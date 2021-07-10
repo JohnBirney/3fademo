@@ -13,12 +13,16 @@ $(document).ready(() => {
             $('#filename1').val(data.filename1)
             $('#filename2').val(data.filename2)
             $('#filename3').val(data.filename3)
-            $('#base64Str1').val(data.base64Str1)
+            /*$('#base64Str1').val(data.base64Str1)
             $('#base64Str2').val(data.base64Str2)
-            $('#base64Str3').val(data.base64Str3)
-            $('#image1').attr('src', data.base64Str1).css('display', 'inline')
-            $('#image2').attr('src', data.base64Str2).css('display', 'inline')
-            $('#image3').attr('src', data.base64Str3).css('display', 'inline')
+            $('#base64Str3').val(data.base64Str3)*/
+            
+            /*$('#image1').attr('src', getImagePath(`~${data.filename1}`)).css('display', 'inline')
+            $('#image2').attr('src', getImagePath(`~${data.filename2}`)).css('display', 'inline')
+            $('#image3').attr('src', getImagePath(`~${data.filename3}`)).css('display', 'inline')*/
+            $('#image1').attr('src', getImagePath(`${data.filename1}`)).css('display', 'inline')
+            $('#image2').attr('src', getImagePath(`${data.filename2}`)).css('display', 'inline')
+            $('#image3').attr('src', getImagePath(`${data.filename3}`)).css('display', 'inline')
             enablePostEdit()
         }
     })
@@ -94,7 +98,8 @@ $(document).ready(() => {
                         $('audio').get(0).play()
                         let dataURL = getSnapshot()
                         $($img).attr('src', dataURL)
-                        $(filename).val(username + index.toString() + '.png')
+                        $(filename).val(`~${username}${index.toString()}.png`)
+                        //$(filename).val('~' + username + index.toString() + '.png')
                         $(base64Str).val(dataURL)
                         copyToFocusedSnapshot($img.get(0))                  
                         resolve(true)

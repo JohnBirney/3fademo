@@ -12,3 +12,13 @@ function imgToBase64 (img) {
     canvas.remove()
     return base64
 }
+
+function getImagePath(filename) {
+
+    const protocol = window.location.protocol
+    const hostname = window.location.hostname
+    const port = window.location.port
+
+    return `${protocol}//${hostname}:${port}/uploads/${filename}`
+
+}
