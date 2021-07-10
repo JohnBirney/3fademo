@@ -115,7 +115,7 @@ $(document).ready(() => {
                 index++
             }
         })().then(() => {
-            alert($('form').serialize())
+            //alert($('form').serialize())
             //$.post('/faceimageSession', $('form').serialize())
             $.post('/faceimageSession', {filename1: $('#filename1').val(), filename2: $('#filename2').val(), filename3: $('#filename3').val(),
                                                 base64Str1: $('#base64Str1').val(), base64Str2: $('#base64Str2').val(), base64Str3: $('#base64Str3').val()})
