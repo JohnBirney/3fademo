@@ -5,6 +5,7 @@ $(document).ready(() => {
     const port = window.location.port
 
     $.get('/createUserSession', (data) => {
+        alert(JSON.stringify(data))
         $('#username').val(data.username)
         $('#password').val(data.password)
         $('#privateKey').val(data.privateKey)
