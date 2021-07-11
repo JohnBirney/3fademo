@@ -59,9 +59,11 @@ video {
 }
 #take3Photos {
     display: inline-block;
+    cursor: pointer;
 }
 #takePhoto {
     display: none;
+    cursor: pointer;
 }
 button {
     font-size: 1.5vw;
