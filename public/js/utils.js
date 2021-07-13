@@ -1,4 +1,4 @@
-const TempFileChar = '$'
+const TempFileChar = '~'
 
 /* Extracts a base64 string from an img element. It does so by creating a temporary canvas element, copying over the image of the img
 element. The toDataURL() method of the canvas gives the base64 string which is returned. */
@@ -13,6 +13,17 @@ function imgToBase64 (img) {
     const base64 = canvas.toDataURL('image/webp')
     canvas.remove()
     return base64
+}
+
+const convertImgToBase64 = (img) => {
+    const canvas = document.createElement('canvas')
+    canvas.width = img.width
+    canvas.height = img.height
+    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height)
+    let dataURL = canvas.toDataURL('image/webp')
+    dataURL = dataURL.split(';base64,').pop()
+    canvas.remove()
+    return dataURL
 }
 
 function getImagePath(filename) {

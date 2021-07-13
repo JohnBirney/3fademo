@@ -73,6 +73,7 @@ app.post('/faceimageSession', actions.faceimageSession)
 app.get('/usernameSession', routes.usernameSession)
 app.get('/faceimage', routes.faceimage)
 app.post('/faceimage', actions.faceimage)
+app.post('/saveFile', actions.saveFile)
 
 app.get('/createuserSession', routes.createuserSession)
 app.get('/createuser', routes.createuser)
