@@ -9,21 +9,14 @@ $(document).ready(() => {
 
     $.get('./faceimageSession', (data) => {
         
-        $('#username').attr('val', data.username)
+        $('#username').val(data.username)
         if (data.filename1 !== '') {
             $('#filename1').val(data.filename1)
             $('#filename2').val(data.filename2)
             $('#filename3').val(data.filename3)
-            /*$('#base64Str1').val(data.base64Str1)
-            $('#base64Str2').val(data.base64Str2)
-            $('#base64Str3').val(data.base64Str3)*/
-            
-            /*$('#image1').attr('src', getImagePath(`~${data.filename1}`)).css('display', 'inline')
-            $('#image2').attr('src', getImagePath(`~${data.filename2}`)).css('display', 'inline')
-            $('#image3').attr('src', getImagePath(`~${data.filename3}`)).css('display', 'inline')*/
-            $('#image1').attr('src', getImagePath(`${data.filename1}`)).css('display', 'inline')
-            $('#image2').attr('src', getImagePath(`${data.filename2}`)).css('display', 'inline')
-            $('#image3').attr('src', getImagePath(`${data.filename3}`)).css('display', 'inline')
+            $('#image1').attr('src', getImagePath(data.filename1)).css('display', 'inline')
+            $('#image2').attr('src', getImagePath(data.filename2)).css('display', 'inline')
+            $('#image3').attr('src', getImagePath(data.filename3)).css('display', 'inline')
             enablePostEdit()
         }
     })
@@ -44,17 +37,7 @@ $(document).ready(() => {
             })
     }
 
-    function getSnapshot() {
-        const canvas = document.createElement('canvas')
-        canvas.width = video.videoWidth
-        canvas.height = video.videoHeight
-        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height)
-        let dataURL = canvas.toDataURL('image/webp')
-        canvas.remove()
-        return dataURL
-    }
-
-    function copyToFocusedSnapshot(source) {
+    const copyToFocusedSnapshot = (source) => {
         $('#focusedSnapshot').attr('src', $(source).attr('src'))
     }
 
@@ -82,27 +65,22 @@ $(document).ready(() => {
         const elems = document.querySelectorAll('.snapshot')
 
         function countdown(elem, index) {
-            let span = $(elem).find('span')
+            let $span = $(elem).find('span')
             let $img = $(elem).find('.image')
-            let filename = $(elem).find('input.filename')
-            let base64Str = $(elem).find('input.base64Str')
+            let $filename = $(elem).find('input.filename')
             return new Promise(function (resolve, reject) {
                 let number = 6
                 let interval = setInterval(() => {
                     number--
                     if (number >= 1) {
-                        $(span).text(number.toString())
+                        $($span).text(number.toString())
                     } else {
                         clearInterval(interval)
-                        $(span).css('display', 'none')
+                        $($span).css('display', 'none')
                         $($img).css('display','inline')
-                        $('audio').get(0).play()
-                        let dataURL = getSnapshot()
-                        $($img).attr('src', dataURL)
-                        $(filename).val(`${TempFileChar}${username}${index.toString()}.png`)
-                        //$(filename).val('~' + username + index.toString() + '.png')
-                        $(base64Str).val(dataURL)
-                        copyToFocusedSnapshot($img.get(0))                  
+                        let filename = `~${username}${index}.png`
+                        $($filename).val(filename)
+                        shoot($img)
                         resolve(true)
                     }
                 }, 1000)
@@ -116,31 +94,24 @@ $(document).ready(() => {
                 index++
             }
         })().then(() => {
-            //alert($('form').serialize())
-            //$.post('/faceimageSession', $('form').serialize())
-            //$.post('/faceimageSession', {filename1: $('#filename1').val(), filename2: $('#filename2').val(), filename3: $('#filename3').val(),
-            //                                    base64Str1: $('#base64Str1').val(), base64Str2: $('#base64Str2').val(), base64Str3: $('#base64Str3').val()})
             enablePostEdit()
         })
 
     })
 
-    $('#takePhoto').click(() => {
+    const shoot = ($img) => {
         $('audio').get(0).play()
-        let dataURL = getSnapshot()
-        let $img = $('.image.selected')
-        let $container = $img.parent()
-        //let $filename = $($container).find('.filename')
-        //let index = $($filename).attr('name').slice(-1)
-        //let $base64Str = $($container).find('.base64Str')
-        $($img).attr('src', dataURL)
-        //$($filename).val(username + index + '.png')
-        //$($base64Str).val(dataURL)
-        copyToFocusedSnapshot($img.get(0))    
-        //$.post('/faceimageSession', $('form').serialize())
-        //$.post('/faceimageSession', {filename1: $('#filename1').val(), filename2: $('#filename2').val(), filename3: $('#filename3').val(),
-        //                              base64Str1: $('#base64Str1').val(), base64Str2: $('#base64Str2').val(), base64Str3: $('#base64Str3').val()})
+        let base64 = videoToBase64(video)
+        $($img).attr('src', base64)
+        base64 = base64.split(';base64,').pop()
+        copyToFocusedSnapshot($img.get(0))
+        let filename = $img.parent().find('.filename').val()
+        $.post('/saveFile', {filename: filename, base64: base64}, () => {})
+    }
 
+    $('#takePhoto').click(() => {
+        let $img = $('.image.selected')
+        shoot($img)
     })
 
     $('.navNext').click(() => {
@@ -153,11 +124,5 @@ $(document).ready(() => {
         })
         $('form').submit()
     })
-
-    $('form').submit(() => {
-        //$('.base64Str').val('')
-        return true
-    })
-
 
 })

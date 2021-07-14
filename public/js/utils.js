@@ -1,5 +1,3 @@
-const TempFileChar = '~'
-
 /* Extracts a base64 string from an img element. It does so by creating a temporary canvas element, copying over the image of the img
 element. The toDataURL() method of the canvas gives the base64 string which is returned. */
 function imgToBase64 (img) {
@@ -13,6 +11,16 @@ function imgToBase64 (img) {
     const base64 = canvas.toDataURL('image/webp')
     canvas.remove()
     return base64
+}
+
+function videoToBase64(video) {
+    const canvas = document.createElement('canvas')
+    canvas.width = video.videoWidth
+    canvas.height = video.videoHeight
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height)
+    let dataURL = canvas.toDataURL('image/webp')
+    canvas.remove()
+    return dataURL
 }
 
 const convertImgToBase64 = (img) => {
