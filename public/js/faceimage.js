@@ -78,7 +78,7 @@ $(document).ready(() => {
                         clearInterval(interval)
                         $($span).css('display', 'none')
                         $($img).css('display','inline')
-                        let filename = `~${username}${index}.png`
+                        let filename = `$${username}${index}.png`
                         $($filename).val(filename)
                         shoot($img)
                         resolve(true)
@@ -115,13 +115,13 @@ $(document).ready(() => {
     })
 
     $('.navNext').click(() => {
-        const $images = $('.snapshot img')
+        /*const $images = $('.snapshot img')
         $images.each((index, $elem) => {
             let base64 = convertImgToBase64($elem)
             let username = $('#username').attr('val')
-            let filename = `~${username}${index + 1}.png`
+            let filename = `$${username}${index + 1}.png`
             $.post('/saveFile', {filename: filename, base64: base64}, () => {})
-        })
+        })*/
         $('form').submit()
     })
 
